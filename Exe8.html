@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exe8</title>
+</head>
+<body>
+	<textarea id="textarea" rows="4">Write Something Here</textarea>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<div id="result"></div>
+	<script type="text/javascript">  
+ 		$('#textarea').on('keyup', function(){
+ 			$('#result').html($('#textarea').val());
+ 		});
+	</script>
+</body>
+</html>

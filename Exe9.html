@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exe9</title>
+</head>
+<body>
+<button id="toggler">Click Me To Toggle</button><br/>
+<div class="toggle" style="width: 300px; height: 300px;border-style:solid;background-color: red">
+</div>
+<div class="toggle" style="width: 300px; height: 300px;border-style:solid;background-color: blue;display: none;">
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('body').on('click', '#toggler', function(){
+			$('.toggle').toggle();
+		});
+	});
+</script>
+</body>
+</html>
