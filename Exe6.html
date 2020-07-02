@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exe6</title>
+</head>
+<body>
+	<h1>Javascript Calculator</h1>
+	<input type="number" name="data" id="data" /><br/>
+	<button type="button" data-op="plus" onclick="operate(this)">Plus</button>
+	<button type="button" data-op="minus" onclick="operate(this)">Minus</button>
+	<button type="button" data-op="mult" onclick="operate(this)">Multiply</button>
+	<button type="button" data-op="div" onclick="operate(this)">Divide</button>
+	<br/><button type="button" data-op="equal" onclick="output()">Equal</button>
+	<br/><h3 id="result"></h3>
+	<script type="text/javascript">
+		var result = 0;
+		var previous = "";
+		var initial = true;
+		function calculate(op)
+		{
+			let input = document.getElementById('data');
+			switch(op) {
+			  case "plus":
+			  	if(initial) result = Number(input.value);
+			    else result = result + Number(input.value);
+			    break;
+			  case "minus":
+			  	if(initial) result = Number(input.value);
+			    else result = Number(input.value) - result;
+			    break;
+			  case "mult":
+			  	if(initial) result = Number(input.value);
+			  	else result = result * Number(input.value);
+			  	break;
+			  case "div":
+			  	if(initial) result = Number(input.value);
+			  	else result = result / Number(input.value);
+			  	break;
+			  default:
+			    // code block
+			}
+			initial = false;
+			input.value = "";
+		}
+		function operate(btn)
+		{
+			let op = btn.dataset.op;
+			calculate(op);
+			previous = op;
+			console.log(result);
+		}
+		function output()
+		{
+			calculate(previous);
+			console.log(result);
+			document.getElementById('result').innerText = result;
+			result = 0;previous = "";initial = true;
+		}
+	</script>
+</body>
+</html>
